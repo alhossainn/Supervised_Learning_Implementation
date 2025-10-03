@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="error-page">
+        <div class="error-card">
+            <i class="fas fa-exclamation-triangle error-icon"></i>
+            <h2>Application Error</h2>
+            <p class="error-message">{{ message }}</p>
+            <p>Please check the server logs or contact the administrator.</p>
+            <a href="{{ url_for('index') }}" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.error-card {
+    text-align: center;
+    background: var(--surface);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: var(--error);
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: var(--error);
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+</style>
+{% endblock %}

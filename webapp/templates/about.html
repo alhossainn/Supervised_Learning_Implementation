@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="about-page">
+        <div class="about-header">
+            <h1>About NeuroScan AI</h1>
+            <p class="subtitle">Advanced Brain Cancer Classification using Deep Learning</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-card">
+                <h3><i class="fas fa-database"></i> Dataset Information</h3>
+                <p>The model was trained on a comprehensive dataset of brain MRI scans categorized into 
+                    three classes: Brain Glioma, Brain Meningioma, and Pituitary Tumor.
+                    <br> The dataset is available at: 
+                    <a href="https://www.kaggle.com/datasets/obulisainaren/multi-cancer" target="_blank">Kaggle Multi-Cancer Dataset</a>
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3><i class="fas fa-network-wired"></i> Model Architecture</h3>
+                <p>This application uses a ResNet-50 convolutional neural network, a deep learning model with 50 layers, specifically adapted for medical image classification.</p>
+                <div class="model-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Architecture:</span>
+                        <span class="spec-value">ResNet-50</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Input Size:</span>
+                        <span class="spec-value">224×224 pixels</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Classes:</span>
+                        <span class="spec-value">3</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Training Samples:</span>
+                        <span class="spec-value">10,500 images</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h3><i class="fas fa-eye"></i> Interpretability with Grad-CAM</h3>
+                <p>Grad-CAM (Gradient-weighted Class Activation Mapping) provides visual explanations for the model's predictions by highlighting the regions in the image that were most influential in the classification decision.</p>
+                <p>This helps medical professionals understand and trust the AI's reasoning process.</p>
+            </div>
+
+            <!-- <div class="about-card">
+                <h3><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h3>
+                <p class="disclaimer">
+                    This tool is designed for research and educational purposes only. It should not be used as a substitute for professional medical diagnosis, advice, or treatment. Always consult qualified healthcare providers for medical decisions.
+                </p>
+            </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="layout">
+        <!-- Left Panel - Class Information -->
+        <div class="left-panel">
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> Cancer Types</h3>
+                <div class="class-list">
+                    {% for class_name, info in class_info.items() %}
+                    <div class="class-item" data-tooltip="{{ info.description }}">
+                        <div class="class-header">
+                            <span class="class-name">{{ class_name.replace('_', ' ').title() }}</span>
+                            <span class="class-accuracy">{{ (info.accuracy * 100)|round(1) }}%</span>
+                        </div>
+                        <div class="class-stats">
+                            <small><b>{{ info.samples }} samples</b></small>
+                            <br>
+                            <small>{{ info.description }}</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-panel">
+            <div class="upload-card">
+                <h2>Brain Cancer Classification</h2>
+                <p class="subtitle">Upload a brain MRI scan for automated classification</p>
+                
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <p>Drag & drop your image here or click to browse</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                        Browse Files
+                    </button>
+                </div>
+                
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <span id="fileName"></span>
+                    <button class="clear-btn" onclick="clearFile()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <button class="classify-btn" id="classifyBtn" disabled>
+                    <i class="fas fa-microscope"></i>
+                    Classify Image
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image... This may take a few seconds.</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h3>Analysis Results</h3>
+                    <div class="prediction-badge" id="predictionBadge">
+                        <span class="prediction-class" id="predictionClass"></span>
+                        <span class="confidence-score" id="confidenceScore"></span>
+                    </div>
+                </div>
+
+                <div class="images-comparison">
+                    <div class="image-card">
+                        <h4>Original Image</h4>
+                        <img id="originalImage" alt="Original MRI scan">
+                    </div>
+                    <div class="image-card">
+                        <h4>Grad-CAM Visualization</h4>
+                        <img id="gradcamImage" alt="Grad-CAM heatmap">
+                    </div>
+                </div>
+
+                <div class="probability-chart">
+                    <h4>Prediction Probabilities</h4>
+                    <div class="chart-container">
+                        <canvas id="probabilityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tooltip Element -->
+<div class="tooltip" id="tooltip"></div>
+{% endblock %}
