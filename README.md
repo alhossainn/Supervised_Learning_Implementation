@@ -89,3 +89,22 @@ brain-tumor-classification/
 - **Backend:** Flask with integrated best-performing model
 - **Frontent:** HTML, CSS, JavaScript
 - **Features:** File upload, real-time prediction, Grad-CAM visualization
+
+### How to Run the Web App
+**1. Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+**2. Download the trained model:**
+
+- [Model Link](https://drive.google.com/file/d/1vtnt25oZMPGluTuME5HFdSiJHT2KnhCD/view?usp=sharing)
+Move them into the webapp/ folder.
+
+**3. Run the Flask app:**
+```bash
+python app.py
+```
+**4. Open in your browser:**
+```bash
+http://127.0.0.1:5000
+```
