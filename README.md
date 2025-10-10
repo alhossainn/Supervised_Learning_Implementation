@@ -34,7 +34,7 @@ This project also provides a user-friendly web interface integrated with the bes
 
 ### Repository Structure
 ```bash
-brain-tumor-classification/
+Supervised_Learning_for_Image_Classification/
 ├── notebooks/
 │   ├── resnet50.ipynb       # ResNet50 model training
 │   └── custom_cnn.ipynb     # BrainCancerNet training
